@@ -1,0 +1,50 @@
+.content .background {
+    background-image: url(image);
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    -webkit-animation: animateHeroBg 40s linear infinite;
+    animation: animateHeroBg 40s linear infinite;
+}
+
+h2{
+    color: white;
+    font-family: monospace;
+    text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+}
+
+video { display: block; }
+
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(Short street rail.mp4) no-repeat;
+    background-size: cover; 
+}
+@media screen and (max-device-width: 800px) {
+    html {
+         background: url(Short street rail.mp4) #000 no-repeat center center fixed;
+    }
+    #bgvid {
+        display: none;
+    }
+}
+
+.selection {
+    background-image: url(IMG_6454.jpg);
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    -webkit-animation: animateHeroBg 40s linear infinite;
+    animation: animateHeroBg 40s linear infinite;
+}
+
+
+
+
