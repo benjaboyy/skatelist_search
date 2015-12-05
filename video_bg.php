@@ -122,11 +122,21 @@
         </div>
        <?php print("$output");?>
     </div>
-
-
+    
+    <div class="btn-group dropup down-menu">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+      </button>
+      <ul style="margin-left: 10px;" class="dropdown-menu">
+        <li><a href="#">Zoeken</a></li>
+        <li><a href="#">Lijst</a></li>
+        <li><a href="#">Admin</a></li>
+      </ul>
+    </div>
     
 </body>
-
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script>

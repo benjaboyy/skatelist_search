@@ -1,6 +1,12 @@
 .breed {
   width: 100%; }
 
+.down-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px; }
+
 @media (max-width: 768px) {
   .doorstuur {
     float: right;
