@@ -45,18 +45,18 @@
                 
                 $output .= '<div id="hippeDiv" class="panel panel-default">
                               <div class="panel-body" id="alleen">
-                                <div class="row">
-                                    <div class="col-sm-3">
+                                <div class="row row-onder">
+                                    <div class="col-sm-4">
                                         <strong>'.$straat.'</strong>
                                         <p>'.$plaats.'</p>
                                     </div>  
-                                    <div style="margin-bottom:-5px;" class="col-sm-5">
+                                    <div class="col-sm-4 row-weg">
                                         <br/><p>Waardering: '.$rate.'</p>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 row-weg">
                                         <br/><p>Data Nummer: '.$id.'</p>
                                     </div>  
-                                    <div class="col-sm-1">
+                                    <div class="col-md-1 row-hoog">
                                         <button type="button" class="btn doorstuur" href="#">
                                             <i class="fa fa-arrow-right"></i>
                                         </button> 
@@ -69,6 +69,7 @@
     }
 ?>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
     <link rel="stylesheet" type="text/css" href="include/css/frame.css">
     <link rel="stylesheet" type="text/css" href="include/main.css">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>

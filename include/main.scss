@@ -14,13 +14,28 @@ $base_color_hover: #009393;
 }
 @media (max-width:768px) {
     .doorstuur {
-        width: 100%;
-        background-color: #fff;
-        color: $base_color;
-        border: solid 1px $base_color_hover !important;
-    }   
+        float: right;
+        width: 30%;
+        background-color: $base_color;
+        color: #fff;
+    }  
+    .doorstuur:hover {
+        float: right;
+        width: 30%;
+        background-color: $base_color_hover;
+        color: #fff;
+    }  
     .child {
       margin-top: 30px;
+    }
+    .row-weg {
+        margin-top: -30px;
+    }
+    .row-hoog {
+        margin-top: -60px;
+    }
+    .row-onder {
+        margin-bottom: 15px;
     }
 }    
 @media (min-width:768px) {
@@ -35,8 +50,23 @@ $base_color_hover: #009393;
         min-height: 94px;
         @include border-radius(0);
     }  
+    .doorstuur:hover {
+        background-color: $base_color_hover;
+        margin-top: -25px;
+        margin-right: -32px;
+        margin-bottom: -30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        float: right;
+        min-height: 94px;
+        @include border-radius(0);
+    } 
     .child {
       margin-top: 100px;
+    }
+    .row-weg {
+    }
+    .row-hoog {
     }
 }
 .zonder-radius {

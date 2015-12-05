@@ -3,16 +3,45 @@
 
 @media (max-width: 768px) {
   .doorstuur {
-    width: 100%;
-    background-color: #fff;
-    color: #00b1b1;
-    border: solid 1px #009393 !important; }
+    float: right;
+    width: 30%;
+    background-color: #00b1b1;
+    color: #fff; }
+
+  .doorstuur:hover {
+    float: right;
+    width: 30%;
+    background-color: #009393;
+    color: #fff; }
 
   .child {
-    margin-top: 30px; } }
+    margin-top: 30px; }
+
+  .row-weg {
+    margin-top: -30px; }
+
+  .row-hoog {
+    margin-top: -60px; }
+
+  .row-onder {
+    margin-bottom: 15px; } }
 @media (min-width: 768px) {
   .doorstuur {
     background-color: #00b1b1;
+    margin-top: -25px;
+    margin-right: -32px;
+    margin-bottom: -30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    float: right;
+    min-height: 94px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0; }
+
+  .doorstuur:hover {
+    background-color: #009393;
     margin-top: -25px;
     margin-right: -32px;
     margin-bottom: -30px;
