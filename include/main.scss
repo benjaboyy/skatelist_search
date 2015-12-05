@@ -18,7 +18,10 @@ $base_color_hover: #009393;
         background-color: #fff;
         color: $base_color;
         border: solid 1px $base_color_hover !important;
-    }    
+    }   
+    .child {
+      margin-top: 30px;
+    }
 }    
 @media (min-width:768px) {
     .doorstuur {
@@ -32,6 +35,9 @@ $base_color_hover: #009393;
         min-height: 94px;
         @include border-radius(0);
     }  
+    .child {
+      margin-top: 100px;
+    }
 }
 .zonder-radius {
     @include border-radius(0px);
@@ -240,3 +246,55 @@ fieldset[disabled] .btn-primary.focus {
 .panel-heading {
    @include border-radius(0);
 }
+.content .background {
+    background-image: url(image);
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    -webkit-animation: animateHeroBg 40s linear infinite;
+    animation: animateHeroBg 40s linear infinite;
+}
+
+h2{
+    color: white;
+    font-family: monospace;
+    text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+}
+
+video { display: block; }
+
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(MVI_5565.webm) no-repeat;
+    background-size: cover; 
+}
+@media screen and (max-device-width: 800px) {
+    html {
+         background: url(MVI_5565.webm) #000 no-repeat center center fixed;
+    }
+    #bgvid {
+        display: none;
+    }
+}
+
+.selection {
+    background-image: url(IMG_6454.jpg);
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    -webkit-animation: animateHeroBg 40s linear infinite;
+    animation: animateHeroBg 40s linear infinite;
+}
+
+.parent {
+  position: relative;
+}
+
+
