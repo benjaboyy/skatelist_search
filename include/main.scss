@@ -18,10 +18,15 @@ $base_color_hover: #009393;
     left: 0;
     padding: 10px;
 }
+.menu-button:hover {
+    background-color: $base_color;
+}
 
 @media (max-width:768px) {
     .doorstuur {
         float: right;
+        padding-top: 20px;
+        padding-bottom: 20px;
         width: 30%;
         background-color: $base_color;
         color: #fff;
@@ -29,6 +34,8 @@ $base_color_hover: #009393;
     .doorstuur:hover {
         float: right;
         width: 30%;
+        padding-top: 20px;
+        padding-bottom: 20px;
         background-color: $base_color_hover;
         color: #fff;
     }  
@@ -44,8 +51,22 @@ $base_color_hover: #009393;
     .row-onder {
         margin-bottom: 15px;
     }
+    .leftspad {
+        padding-left: 0px;  
+        padding-right: 0px;
+    }
+    .rightpad {
+        padding-left: 0px;  
+        padding-right: 0px;
+    }
 }    
 @media (min-width:768px) {
+    .leftspad {
+        padding-left: 0px;  
+    }
+    .rightpad {
+        padding-right: 0px;
+    }
     .doorstuur {
         background-color: $base_color;
         margin-top: -25px;
@@ -53,7 +74,9 @@ $base_color_hover: #009393;
         margin-bottom: -30px;
         padding-left: 15px;
         padding-right: 15px;
+        padding-top: 42px;
         float: right;
+        vertical-align: middle;
         min-height: 94px;
         @include border-radius(0);
     }  
@@ -139,7 +162,7 @@ select {
     border-radius: 0;
     height: 2.3125rem;
 }
-input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button {
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button, button {
     align-items: flex-start;
     text-align: center;
     cursor: default;
@@ -332,6 +355,14 @@ video#bgvid {
 
 .parent {
   position: relative;
+}
+.leftspad > #hippeDiv > #alleen {
+    background-color: $base_color !important; 
+    color: #fff;
+}
+.rightpad > #hippeDiv > #alleen {
+    background-color: $base_color !important; 
+    color: #fff;
 }
 
 

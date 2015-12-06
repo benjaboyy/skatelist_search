@@ -35,66 +35,51 @@
             </div>
           </div>
         </div>
+        
         <div id="hippeDiv" class="panel panel-default">
           <div class="panel-body" id="alleen">
-            <div class="row">
-                <div class="col-sm-7">
-                    <strong>Area 51</strong>
-                    <p>Eindhoven straat 5</p>  
+            <div class="row row-onder">
+                <div class="col-sm-4">
+                    <strong>'.$straat.'</strong>
+                    <p>'.$plaats.'</p>
                 </div>  
-                <div class="col-sm-3">
-                    <strong><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></strong>
-                    <p>Eindhoven straat 5</p>
+                <div class="col-sm-4 row-weg">
+                    <br/><p>Waardering: '.$rate.'</p>
                 </div>
-                <div class="col-sm-2">
-                    <button type="button" class="btn doorstuur" href="#">
+                <div class="col-sm-3 row-weg">
+                    <br/><p>Data Nummer: '.$id.'</p>
+                </div>  
+                <div class="col-md-1 row-hoog">
+                    <a type="button" class="btn btn-primary doorstuur" href="lijst.php?id='.$id.'" >
                         <i class="fa fa-arrow-right"></i>
-                    </button> 
+                    </a> 
                 </div>
             </div>
           </div>
         </div>
-        <div id="hippeDiv" class="panel panel-default">
-          <div class="panel-body" id="alleen">
-            <div class="row">
-                <div class="col-sm-3">
-                    <strong>Area 51</strong>
-                    <p>Eindhoven straat 5</p>
-                </div>  
-                <div style="margin-bottom:-5px;" class="col-sm-5">
-                    <p><i class="fa fa-3x fa-star"></i><i class="fa fa-3x fa-star"></i><i class="fa fa-3x fa-star"></i><i class="fa fa-3x fa-star-o"></i><i class="fa fa-3x fa-star-o"></i></p>
-                </div>
-                <div class="col-sm-3">
-                    
-                </div>  
-                <div class="col-sm-1">
-                    <button type="button" class="btn doorstuur" href="#">
-                        <i class="fa fa-arrow-right"></i>
-                    </button> 
+        <div class="row">
+            <div class="col-md-6 leftspad">
+                <div onclick="location.href='http//:maps.google.com';" id="hippeDiv" class="panel panel-default ">
+                  <div class="panel-body" id="alleen">
+                    <div class="row">
+                        <center>
+                            <p>BEKIJKEN OP MAPS</p>
+                        </center>
+                    </div>
+                  </div>
                 </div>
             </div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">Parkname</h2>
-          </div>
-          <div class="panel-body" id="onder">
-            <div class="row">
-                <div class="col-md-7">
-                    <input type="text" id="zoek" class="form-control">  
-                </div>  
-                <div class="col-md-3 col-xs-6">
-                    
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <button type="button" class="btn btn-primary breed" href="#">
-                        <i class="fa fa-search"></i>
-                        Zoeken
-                    </button>
+            <div class="col-md-6 rightpad">
+                <div id="hippeDiv" class="panel panel-default">
+                  <div class="panel-body" id="alleen">
+                    <div class="row">
+                        <center>
+                            <p>DELEN MET VRIENDEN</p>
+                        </center>
+                    </div>
+                  </div>
                 </div>
             </div>
-          </div>
         </div>
     </div>
 </body>
