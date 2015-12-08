@@ -21,7 +21,7 @@
         else {
             while($row = mysql_fetch_array($query)) {
                 $plaats = $row['plaats'];
-                $straat = $row['park'];
+                $park = $row['park'];
                 $id = $row['id'];
 //                $rate = $row['rate'];
                 
@@ -70,7 +70,7 @@
                   <div class="panel-body" id="alleen">
                     <div class="row row-onder">
                         <div class="col-sm-4">
-                            <strong>'.$straat.'</strong>
+                            <strong>'.$park.'</strong>
                             <p>'.$plaats.'</p>
                         </div>  
                         <div class="col-sm-4 row-weg">
@@ -87,61 +87,19 @@
                 </div>';
             }
         }
-    
+include 'include/head.php';
 ?>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
-    <link rel="stylesheet" type="text/css" href="include/css/frame.css">
-    <link rel="stylesheet" type="text/css" href="include/main.css">
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!--[if lt IE 9]>
-        <script>
-            document.createElement('video');
-        </script>
-    <![endif]-->
-    <meta charset="utf-8">
-    <title>Login</title>
-</head>
+
 
 <body>
     <video autoplay loop poster="MVI_5565.webm" id="bgvid">
         <source src="MVI_5565.webm" type="video/webm">
     </video>
    <div class="container">
-        <div class="child panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">ZOEKEN SPOT</h2>
-          </div>
-          <div class="panel-body" id="onder">
-            <div class="row">
-              <form  method="post" action="video_bg.php"  id="searchform">
-                <div class="col-md-7">
-                    <input type="text" name="search" class="form-control">  
-                </div>  
-                <div class="col-md-3 col-xs-6">
-                    <select id="select-filter" palceholder="Filter" class="form-control">
-                        <option value="">Geen filter</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
-                    </select>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                
-                    <button  type="submit" value="Search" class="btn btn-primary breed">
-                        <i class="fa fa-search"></i>
-                        Zoeken
-                    </button>
-                </div>
-               </form>       
-            </div>
-          </div>
-            
-        </div>
-       <?php print("$output");?>
+       <?php 
+           include 'include/search.php';
+           print("$output");
+       ?>
     </div>
     
     <div class="btn-group dropup down-menu">
