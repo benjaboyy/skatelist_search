@@ -70,8 +70,9 @@
         }
     }
 include 'include/head.php';
-?>
+include 'include/menu.php';
 
+?>
 
 <body>
     <video autoplay loop poster="MVI_5565.webm" id="bgvid">
@@ -83,9 +84,7 @@ include 'include/head.php';
            print("$output");
        ?>
     </div>
-    <?php
-        include 'include/menu.php';
-    ?>
+    
     
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -95,5 +94,16 @@ include 'include/head.php';
 <script>
 $(".addItem").click(function(){
   $(".listitems").fadeToggle("slow", "linear");
+});
+</script>
+<script>
+$("a#toggle").on('click', function(e) {
+  $('body').toggleClass('js-open');
+  $('nav').toggleClass('js-open');
+  e.preventDefault();
+});
+
+$(".nav-background").on('click', function() {
+  $('body, nav').removeClass('js-open');
 });
 </script>

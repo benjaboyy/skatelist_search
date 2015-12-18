@@ -5,7 +5,7 @@
         
         $query = mysql_query("SELECT * FROM list") or die("coul not search");
         $count = mysql_num_rows($query);
-        
+        $output = "";
         while($row = mysql_fetch_array($query)) {
             $plaats = $row['plaats'];
             $park = $row['park'];
@@ -13,22 +13,6 @@
             $straat = $row['straat'];
             $rate = $row['rate'];
 
-            
-//            if($row['rate'] == 1){
-//            $rate = '<i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';	
-//            }
-//            else if ($row['rate'] == 2){
-//                $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
-//            }
-//            else if ($row['rate'] == 3){
-//                $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
-//            }
-//            else if ($row['rate'] == 4){
-//                $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>';
-//            }
-//            else if ($row['rate'] == 5){
-//                $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
-//            }
 
             $output .= '<tr> 
                             <th scope="row">'.$id.'</th> 
@@ -73,6 +57,7 @@ include 'include/head.php';
     
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="include/js/nav_js.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">

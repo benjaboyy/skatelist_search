@@ -1,11 +1,31 @@
-<div class=" dropup down-menu">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-  </button>
-
-    <div style="margin-left: 10px;" class="dropdown-menu">
-        <li><a class="menu-button" href="index.php">Zoeken</a></li>
-        <li><a class="menu-button" href="lijst.php">Lijst</a></li>
-        <li><a class="menu-button" href="#">Admin</a></li>
-    </div>
-</div>
+<header id="mast" class="">
+    <!--logo-->
+    <h1 id="logo">
+  	  SkateList
+  	</h1>
+    <!-- Main Nav-->
+    <a id="toggle" href="#">
+      <div class="menubars"></div>
+    </a>
+    <nav>
+      <div class="nav-background">
+        <ul>
+          <li>
+            <a href="index.php">Zoeken</a>
+          </li>
+          <li>
+            <a href="lijst.php">Lijst</a>
+          </li>
+          <li>
+            <a href="data.php">Data</a>
+          </li>
+          <li>
+            <a href="#">Admin pannel</a>
+          </li>
+          <li>
+            <a href="#">Over ons</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+</header>
