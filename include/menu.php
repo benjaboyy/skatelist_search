@@ -1,8 +1,5 @@
 <header id="mast" class="">
-    <!--logo-->
-    <h1 id="logo">
-  	  SkateList
-  	</h1>
+    
     <!-- Main Nav-->
     <a id="toggle" href="#">
       <div class="menubars"></div>
@@ -17,13 +14,7 @@
             <a href="lijst.php">Lijst</a>
           </li>
           <li>
-            <a href="data.php">Data</a>
-          </li>
-          <li>
-            <a href="#">Admin pannel</a>
-          </li>
-          <li>
-            <a href="#">Over ons</a>
+            <a href="riders.php">Riders List</a>
           </li>
         </ul>
       </div>

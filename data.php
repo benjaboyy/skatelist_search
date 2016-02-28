@@ -88,6 +88,7 @@
             }
         }
 include 'include/head.php';
+include 'include/menu.php';
 ?>
 
 
@@ -100,17 +101,6 @@ include 'include/head.php';
            include 'include/search.php';
            print("$output");
        ?>
-    </div>
-    
-    <div class="btn-group dropup down-menu">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-      </button>
-      <ul style="margin-left: 10px;" class="dropdown-menu">
-        <li><a href="#">Zoeken</a></li>
-        <li><a href="#">Lijst</a></li>
-        <li><a href="#">Admin</a></li>
-      </ul>
     </div>
     
 </body>

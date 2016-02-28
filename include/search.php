@@ -11,11 +11,9 @@
         <div class="col-md-3 col-xs-6">
             <select id="select-filter" palceholder="Filter" class="form-control">
                 <option value="">Geen filter</option>
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
+                <option value="">Plaats</option>
+                <option value="">park</option>
+                <option value="">spot</option>
             </select>
         </div>
         <div class="col-md-2 col-xs-6">

@@ -1,20 +1,9 @@
-@media (min-width: 45em) {
-  body {
-    font-size: 120%; } }
-@media (min-width: 65em) {
-  body {
-    font-size: 130%; } }
-@media (min-width: 85em) {
-  body {
-    font-size: 150%; } }
-
 a {
   text-decoration: none; }
 
 header {
   position: fixed;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
   display: block;
   top: 0;
   padding: 0;
@@ -93,8 +82,10 @@ header {
   header #toggle {
     height: 3em;
     z-index: 999;
-    padding: 1.5em 1em 0;
+    padding: 1.5em;
+    padding-bottom: 2.2em;
     cursor: pointer;
+    background-color: #00b1b1;
     position: fixed;
     top: 0;
     right: .5em;
