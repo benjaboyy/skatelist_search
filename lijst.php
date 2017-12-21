@@ -1,29 +1,38 @@
 <?php
-    mysql_connect("localhost", "root", "usbw") or die ("Could not connect");
-    mysql_select_db("skatelist") or die ("could not select database");
+
+    $mysqli = new mysqli('localhost', 'skatelist_nl_skatelist', 'xQN3zWRU9azk', 'skatelist_nl_skatelist');
+    if ($mysqli->connect_errno) {
+        echo "Sorry, this website is experiencing problems.";
+        echo "Error: Failed to make a connection, here is why: \n";
+        echo "Errno: " . $mysqli->connect_errno . "\n";
+        echo "Error: " . $mysqli->connect_error . "\n";
+        exit;
+    }
+    $output = '';    
+
+    $sql = "SELECT * FROM skatepark";
+    $result = $mysqli->query($sql);
     
-        
-        $query = mysql_query("SELECT * FROM list") or die("coul not search");
-        $count = mysql_num_rows($query);
-        $output = "";
-        while($row = mysql_fetch_array($query)) {
-            $plaats = $row['plaats'];
-            $park = $row['park'];
-            $id = $row['id'];
-            $straat = $row['straat'];
-            $rate = $row['rate'];
+    while($row = $result->fetch_assoc()) {
+        $city = $row['city'];
+		$street = $row['street'];
+		$number = $row['number'];
+		$name = $row['name'];
+		$id = $row['id'];
+		$rate = $row['rate'];
 
 
-            $output .= '<tr> 
-                            <th scope="row">'.$id.'</th> 
-                            <td>'.$park.'</td> 
-                            <td>'.$straat.'</td> 
-                            <td>'.$rate.'</td> 
-                        </tr>';
-        }
+        $output .= '<tr> 
+                        <th scope="row">'.$id.'</th> 
+                        <td>'.$name.'</td> 
+                        <td>'.$city.'</td> 
+                        <td>'.$street.' '.$number.'</td> 
+                        <td><a class="to-right arrow" ><i class="fa fa-arrow-right primary-color" aria-hidden="true"></i></a></td> 
+                    </tr>';
+    }
         
    
-include 'include/head.php';
+    include 'include/head.php';
 ?>
 
 
@@ -40,9 +49,10 @@ include 'include/head.php';
                 <thead> 
                     <tr> 
                         <th>#</th> 
-                        <th>First Name</th> 
-                        <th>Last Name</th> 
-                        <th>Username</th> 
+                        <th>Naam</th> 
+                        <th>plaats</th> 
+                        <th>Rating</th>
+                        <th></th>
                     </tr> 
                 </thead> 
                 <tbody>

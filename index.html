@@ -1,0 +1,42 @@
+<?php
+use PEAR2\Net\RouterOS;
+//include_once 'PEAR2/Autoload.php';
+include_once '../packages/PEAR2_Net_RouterOS-1.0.0b3.phar';
+$client = new RouterOS\Client('192.168.24.10', 'nagios', 'La4KexqyYuMl');
+
+
+$request_active = new RouterOS\Request('/ppp active print');
+$request_users = new RouterOS\Request('/tool user-manager user print');
+
+$active_users = $client->sendSync($request_active);
+$all_users = $client->sendSync($request_users);
+
+
+//if ($client->sendSync($request_active)->getType() !== RouterOS\Response::TYPE_FINAL) {
+//  print_r($active_users); 
+//   echo "Error!";
+//}
+
+if ($client->sendSync($request_users)->getType() !== RouterOS\Response::TYPE_FINAL) {
+   print_r($users); 
+   echo "Error!";
+}
+
+ 
+foreach ($active_users as $active_user) {
+    foreach ($active_user->getAllArguments() as $name => $value) {
+        echo "{$name}: {$value}<br/>\n";
+    }
+    echo "====<br/>\n";
+}
+
+
+foreach ($all_users as $user) {
+    foreach ($user->getAllArguments() as $name => $value) {
+        echo "{$name}: {$value}<br/>\n";
+    }
+    echo "====<br/>\n";
+}
+
+
+?>

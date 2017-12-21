@@ -1,15 +1,24 @@
 <?php
-    mysql_connect("localhost", "root", "usbw") or die ("Could not connect");
-    mysql_select_db("skatelist") or die ("could not select database");
+    
+    $mysqli = new mysqli('localhost', 'skatelist_nl_skatelist', 'xQN3zWRU9azk', 'skatelist_nl_skatelist');
+    if ($mysqli->connect_errno) {
+        echo "Sorry, this website is experiencing problems.";
+        echo "Error: Failed to make a connection, here is why: \n";
+        echo "Errno: " . $mysqli->connect_errno . "\n";
+        echo "Error: " . $mysqli->connect_error . "\n";
+        exit;
+    }
     $output = '';
+    
     //collect
     if(isset($_POST['search'])) {
+        
         $searchq = $_POST['search'];
         $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
+        $sql = "SELECT * FROM skatepark WHERE city LIKE '%$searchq%' OR name LIKE '%$searchq%'";
+        $result = $mysqli->query($sql);
         
-        $query = mysql_query("SELECT * FROM list WHERE plaats LIKE '%$searchq%' OR park LIKE '%$searchq%'") or die("coul not search");
-        $count = mysql_num_rows($query);
-        if($count == 0){
+        if ($result->num_rows === 0){
             $output = '<div id="hippeDiv" class="panel panel-default">
                           <div class="panel-body" id="alleen">
                             <div class="row">
@@ -21,11 +30,13 @@
                         </div>';
         }
         else {
-            while($row = mysql_fetch_array($query)) {
-                $plaats = $row['plaats'];
-                $park = $row['park'];
-                $id = $row['id'];
-//                $rate = $row['rate'];
+            while($row = $result->fetch_assoc()) {
+                $city = $row['city'];
+				$street = $row['street'];
+				$number = $row['number'];
+				$name = $row['name'];
+				$id = $row['id'];
+				$rate = $row['rate'];
                 
                 if($row['rate'] == 1){
 				$rate = '<i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';	
@@ -47,14 +58,14 @@
                               <div class="panel-body" id="alleen">
                                 <div class="row row-onder resultaat">
                                     <div class="col-sm-4">
-                                        <strong>'.$park.'</strong>
-                                        <p>'.$plaats.'</p>
+                                        <strong>'.$name.'</strong>
+                                        <p>'.$city.'</p>
                                     </div>  
                                     <div class="col-sm-4 row-weg">
-                                        <br/><p>Waardering: '.$rate.'</p>
+                                        <br/><p>Rating: '.$rate.'</p>
                                     </div>
                                     <div class="col-sm-3 row-weg">
-                                        <br/><p>Data Nummer: '.$id.'</p>
+                                        <br/><p>SpotID: '.$id.'</p>
                                     </div>  
                                     <div class="col-md-1 row-hoog">
                                         <a type="button" class="btn btn-primary doorstuur" href="data.php?id='.$id.'" >
@@ -69,8 +80,9 @@
             }
         }
     }
-include 'include/head.php';
-include 'include/menu.php';
+    
+    include 'include/head.php';
+    include 'include/menu.php';
 
 ?>
 
@@ -84,26 +96,24 @@ include 'include/menu.php';
            print("$output");
        ?>
     </div>
-    
-    
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script>
-$(".addItem").click(function(){
-  $(".listitems").fadeToggle("slow", "linear");
-});
+    $(".addItem").click(function(){
+      $(".listitems").fadeToggle("slow", "linear");
+    });
 </script>
 <script>
-$("a#toggle").on('click', function(e) {
-  $('body').toggleClass('js-open');
-  $('nav').toggleClass('js-open');
-  e.preventDefault();
-});
+    $("a#toggle").on('click', function(e) {
+      $('body').toggleClass('js-open');
+      $('nav').toggleClass('js-open');
+      e.preventDefault();
+    });
 
-$(".nav-background").on('click', function() {
-  $('body, nav').removeClass('js-open');
-});
+    $(".nav-background").on('click', function() {
+      $('body, nav').removeClass('js-open');
+    });
 </script>

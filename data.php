@@ -1,30 +1,40 @@
 <?php
-    mysql_connect("localhost", "root", "usbw") or die ("Could not connect");
-    mysql_select_db("skatelist") or die ("could not select database");
+
+    $mysqli = new mysqli('localhost', 'skatelist_nl_skatelist', 'xQN3zWRU9azk', 'skatelist_nl_skatelist');
+    if ($mysqli->connect_errno) {
+        echo "Sorry, this website is experiencing problems.";
+        echo "Error: Failed to make a connection, here is why: \n";
+        echo "Errno: " . $mysqli->connect_errno . "\n";
+        echo "Error: " . $mysqli->connect_error . "\n";
+        exit;
+    }
     $output = '';
+
     //collect
-    $id = $_GET['id'];
+    $ids = $_GET['id'];
         
-        $query = mysql_query("SELECT * FROM list WHERE id='$id'") or die("coul not search");
-        $count = mysql_num_rows($query);
-        if($count == 0){
+        $sql = "SELECT * FROM skatepark WHERE id='$ids'";
+        $result = $mysqli->query($sql);
+        if ($result->num_rows === 0){
             $output = '<div id="hippeDiv" class="panel panel-default">
-                              <div class="panel-body" id="alleen">
-                                <div class="row">
-                                    <center>
-                                        <p>Er zijn geen spots gevonden</p>
-                                    </center>
-                                </div>
-                              </div>
-                            </div>';
+                          <div class="panel-body" id="alleen">
+                            <div class="row">
+                                <center>
+                                    <p>Klopt dit ID wel?</p>
+                                </center>
+                            </div>
+                          </div>
+                        </div>';
         }
         else {
-            while($row = mysql_fetch_array($query)) {
-                $plaats = $row['plaats'];
-                $park = $row['park'];
-                $id = $row['id'];
-//                $rate = $row['rate'];
-                
+            while($row = $result->fetch_assoc()) {
+                $city = $row['city'];
+				$street = $row['street'];
+				$number = $row['number'];
+				$name = $row['name'];
+				$id = $row['id'];
+				$rate = $row['rate'];
+				$category = $row['category'];
                 if($row['rate'] == 1){
 				$rate = '<i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';	
                 }
@@ -40,51 +50,50 @@
                 else if ($row['rate'] == 5){
                     $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
                 }
-                
-                $output .= '
-                <div class="row">
-                    <div class="col-sm-6 leftspad">
-                        <div onclick="location.href="http//:maps.google.com"  ;" id="hippeDiv" class="panel panel-default ">
-                          <div class="panel-body" id="alleen">
-                            <div class="row">
-                                <center>
-                                    <p>BEKIJKEN OP MAPS</p>
-                                </center>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 rightpad">
-                        <div id="hippeDiv" class="panel panel-default">
-                          <div class="panel-body" id="alleen">
-                            <div class="row">
-                                <center>
-                                    <p>DELEN MET VRIENDEN</p>
-                                </center>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="hippeDiv" class="panel panel-default">
-                  <div class="panel-body" id="alleen">
-                    <div class="row row-onder">
-                        <div class="col-sm-4">
-                            <strong>'.$park.'</strong>
-                            <p>'.$plaats.'</p>
-                        </div>  
-                        <div class="col-sm-4 row-weg">
-                            <br/><p>Waardering: '.$rate.'</p>
-                        </div>
-                        <div class="col-sm-3 row-weg">
-                            <br/><p>Data Nummer: '.$id.'</p>
-                        </div>  
-                        <div class="col-md-1 row-hoog">
+               $output .= '
+               <div class="row">
+                   <div class="col-sm-6 leftspad">
+                       <div onclick="location.href="http//:maps.google.com"  ;" id="hippeDiv" class="panel panel-default ">
+                         <div class="panel-body" id="alleen">
+                           <div class="row">
+                               <center>
+                                   <p style="text-transform:uppercase;">'.$name.'</p>
+                               </center>
+                           </div>
+                         </div>
+                       </div>
+                   </div>
+                   <div class="col-sm-6 rightpad">
+                       <div id="hippeDiv" class="panel panel-warning">
+                         <div class="panel-body" id="alleen">
+                           <div class="row">
+                               <center>
+                                   <p style="text-transform:uppercase;">'.$category.'</p>
+                               </center>
+                           </div>
+                         </div>
+                       </div>
+                   </div>
+               </div>
+               <div id="hippeDiv" class="panel panel-default">
+                 <div class="panel-body" id="alleen">
+                   <div class="row row-onder">
+                       <div class="col-sm-4">
+                           <strong>'.$name.'</strong>
+                           <p>'.$city.'</p>
+                       </div>  
+                       <div class="col-sm-4 row-weg">
+                           <br/><p>Waardering: '.$rate.'</p>
+                       </div>
+                       <div class="col-sm-3 row-weg">
+                           <br/><p>Data Nummer: '.$id.'</p>
+                       </div>  
+                       <div class="col-md-1 row-hoog">
 
-                        </div>
-                    </div>
-                  </div>
-                </div>';
+                       </div>
+                   </div>
+                 </div>
+               </div>';
             }
         }
 include 'include/head.php';
