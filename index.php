@@ -9,6 +9,7 @@
         exit;
     }
     $output = '';
+	$space = 1;
     
     //collect
     if(isset($_POST['search'])) {
@@ -17,7 +18,8 @@
         $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
         $sql = "SELECT * FROM skatepark WHERE city LIKE '%$searchq%' OR name LIKE '%$searchq%'";
         $result = $mysqli->query($sql);
-        
+        $space = 0;
+		
         if ($result->num_rows === 0){
             $output = '<div id="hippeDiv" class="panel panel-default">
                           <div class="panel-body" id="alleen">
@@ -38,21 +40,9 @@
 				$id = $row['id'];
 				$rate = $row['rate'];
                 
-                if($row['rate'] == 1){
-				$rate = '<i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';	
-                }
-                else if ($row['rate'] == 2){
-                    $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
-                }
-                else if ($row['rate'] == 3){
-                    $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
-                }
-                else if ($row['rate'] == 4){
-                    $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>';
-                }
-                else if ($row['rate'] == 5){
-                    $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
-                }
+				require 'include/function/rating.php';
+				
+                
                 
                 $output .= '<div id="hippeDiv" class="panel panel-default">
                               <div class="panel-body" id="alleen">
@@ -92,7 +82,7 @@
     </video>
    <div class="container">
        <?php 
-           include 'include/search.php';
+           require 'include/search.php';
            print("$output");
        ?>
     </div>

@@ -15,10 +15,7 @@ include 'include/menu.php';
                 <div class="col-sm-6"><h1>Riders</h1></div>  
                 <div class="col-sm-6">
                     <form style="float:right!important;" class="navbar-form navbar-left" method="post" action="index.php" id="searchform">
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button style="min-height: 52px;" type="submit" class="btn btn-primary">Submit</button>
+                        <button style="min-height: 52px;" type="submit" class="btn btn-primary">Zoeken</button>
                     </form>
                 </div>  
             </div>

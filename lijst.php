@@ -20,19 +20,20 @@
 		$name = $row['name'];
 		$id = $row['id'];
 		$rate = $row['rate'];
+		
+		require 'include/function/rating.php';
 
-
-        $output .= '<tr> 
+        $output .= '<tr data-href="data.php?id='.$id.'"> 
                         <th scope="row">'.$id.'</th> 
                         <td>'.$name.'</td> 
-                        <td>'.$city.'</td> 
-                        <td>'.$street.' '.$number.'</td> 
+                        <td>'.$street.' '.$number.', '.$city.'</td> 
+                        <td>'.$rate.'</td> 
                         <td><a class="to-right arrow" ><i class="fa fa-arrow-right primary-color" aria-hidden="true"></i></a></td> 
                     </tr>';
     }
         
-   
     include 'include/head.php';
+	include 'include/menu.php';
 ?>
 
 
@@ -45,12 +46,15 @@
            include 'include/search.php';
        ?>
        <div id="hippeDiv" class="panel panel-default">
+		   <div class="panel-heading">
+				<h2 class="panel-title">Alle spots</h2>
+		   </div>
             <table class="table table-hover"> 
                 <thead> 
                     <tr> 
                         <th>#</th> 
                         <th>Naam</th> 
-                        <th>plaats</th> 
+                        <th>Plaats</th> 
                         <th>Rating</th>
                         <th></th>
                     </tr> 
@@ -61,9 +65,6 @@
               </table>
         </div>
     </div>
-    <?php
-        include 'include/menu.php';
-    ?>
     
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -74,5 +75,10 @@
 <script>
 $(".addItem").click(function(){
   $(".listitems").fadeToggle("slow", "linear");
+});
+</script>
+<script>
+$('tr[data-href]').on("click", function() {
+    document.location = $(this).data('href');
 });
 </script>

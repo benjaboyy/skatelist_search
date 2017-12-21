@@ -35,66 +35,54 @@
 				$id = $row['id'];
 				$rate = $row['rate'];
 				$category = $row['category'];
-                if($row['rate'] == 1){
-				$rate = '<i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';	
-                }
-                else if ($row['rate'] == 2){
-                    $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
-                }
-                else if ($row['rate'] == 3){
-                    $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
-                }
-                else if ($row['rate'] == 4){
-                    $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>';
-                }
-                else if ($row['rate'] == 5){
-                    $rate = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
-                }
-               $output .= '
-               <div class="row">
-                   <div class="col-sm-6 leftspad">
-                       <div onclick="location.href="http//:maps.google.com"  ;" id="hippeDiv" class="panel panel-default ">
-                         <div class="panel-body" id="alleen">
-                           <div class="row">
-                               <center>
-                                   <p style="text-transform:uppercase;">'.$name.'</p>
-                               </center>
-                           </div>
-                         </div>
-                       </div>
-                   </div>
-                   <div class="col-sm-6 rightpad">
-                       <div id="hippeDiv" class="panel panel-warning">
-                         <div class="panel-body" id="alleen">
-                           <div class="row">
-                               <center>
-                                   <p style="text-transform:uppercase;">'.$category.'</p>
-                               </center>
-                           </div>
-                         </div>
-                       </div>
-                   </div>
-               </div>
-               <div id="hippeDiv" class="panel panel-default">
-                 <div class="panel-body" id="alleen">
-                   <div class="row row-onder">
-                       <div class="col-sm-4">
-                           <strong>'.$name.'</strong>
-                           <p>'.$city.'</p>
-                       </div>  
-                       <div class="col-sm-4 row-weg">
-                           <br/><p>Waardering: '.$rate.'</p>
-                       </div>
-                       <div class="col-sm-3 row-weg">
-                           <br/><p>Data Nummer: '.$id.'</p>
-                       </div>  
-                       <div class="col-md-1 row-hoog">
+				
+                require 'include/function/rating.php';
+				
+				$output .= '
+				<div class="row">
+				   <div class="col-sm-6 leftspad">
+					   <div onclick="location.href="http//:maps.google.com"  ;" id="hippeDiv" class="panel panel-default ">
+						 <div class="panel-body" id="alleen">
+						   <div class="row">
+							   <center>
+								   <p style="text-transform:uppercase;">'.$name.'</p>
+							   </center>
+						   </div>
+						 </div>
+					   </div>
+				   </div>
+				   <div class="col-sm-6 rightpad">
+					   <div id="hippeDiv" class="panel panel-warning">
+						 <div class="panel-body" id="alleen">
+						   <div class="row">
+							   <center>
+								   <p style="text-transform:uppercase;">'.$category.'</p>
+							   </center>
+						   </div>
+						 </div>
+					   </div>
+				   </div>
+				</div>
+				<div id="hippeDiv" class="panel panel-default">
+				 <div class="panel-body" id="alleen">
+				   <div class="row row-onder">
+					   <div class="col-sm-4">
+						   <strong>'.$name.'</strong>
+						   <p>'.$city.'</p>
+					   </div>  
+					   <div class="col-sm-4 row-weg">
+						   <br/><p>Waardering: '.$rate.'</p>
+					   </div>
+					   <div class="col-sm-3 row-weg">
+						   <br/><p>Data Nummer: '.$id.'</p>
+					   </div>  
+					   <div class="col-md-1 row-hoog">
 
-                       </div>
-                   </div>
-                 </div>
-               </div>';
-            }
+					   </div>
+				   </div>
+				 </div>
+				</div>';
+				}
         }
 include 'include/head.php';
 include 'include/menu.php';
@@ -114,6 +102,7 @@ include 'include/menu.php';
     
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="include/js/nav_js.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">

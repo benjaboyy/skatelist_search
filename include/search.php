@@ -1,3 +1,10 @@
+<?php if($space == 1): ?>
+	<style>
+		.child {
+			margin-top: 30%;
+		}
+	</style>
+<?php endif ?>
 <div class="child panel panel-default">
   <div class="panel-heading">
     <h2 class="panel-title">ZOEKEN SPOT</h2>
@@ -27,3 +34,4 @@
     </div>
   </div>
 </div>
+
