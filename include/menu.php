@@ -1,7 +1,7 @@
 <header id="mast" class="">
     
     <!-- Main Nav-->
-    <a id="toggle" href="#">
+    <a id="toggle" href="#" onclick="$('#mapid').toggle(); ">
       <div class="menubars"></div>
     </a>
     <nav>
@@ -12,6 +12,9 @@
           </li>
           <li>
             <a href="lijst.php">Lijst</a>
+          </li>
+          <li>
+            <a href="maps.php">Maps</a>
           </li>
           <li>
             <a href="riders.php">Riders List</a>

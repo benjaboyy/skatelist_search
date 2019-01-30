@@ -39,6 +39,7 @@
 				$name = $row['name'];
 				$id = $row['id'];
 				$rate = $row['rate'];
+                $objects = $row['objects'];
                 
 				require 'include/function/rating.php';
 				
@@ -52,16 +53,18 @@
                                         <p>'.$city.'</p>
                                     </div>  
                                     <div class="col-sm-4 row-weg">
-                                        <br/><p>Rating: '.$rate.'</p>
+                                        <br/>
+                                        <p style="margin: 0 0 1 0;">Rating: '.$rate.'</p>
                                     </div>
-                                    <div class="col-sm-3 row-weg">
-                                        <br/><p>SpotID: '.$id.'</p>
+                                    <div class="col-sm-3">
+                                        Bevat: <span class="iconfont hidden-sm" style="font-size:14px; color:#4d4d4d;">'.$objects.'</span>
+                                        <p>SpotID: '.$id.'</p>
                                     </div>  
                                     <div class="col-md-1 row-hoog">
                                         <a type="button" class="btn btn-primary doorstuur" href="data.php?id='.$id.'" >
                                             <center>
                                                 <i class="fa fa-arrow-right"></i>
-                                                </center>
+                                            </center>
                                         </a> 
                                     </div>
                                 </div>

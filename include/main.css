@@ -1,6 +1,14 @@
 .breed {
   width: 100%; }
 
+@font-face {
+    font-family: schuurricon;
+    src: url(fonts/schuurricon.woff);
+}
+.iconfont {
+    font-family: schuurricon;
+}
+
 .down-menu {
   position: fixed;
   bottom: 0;
@@ -366,5 +374,8 @@ video#bgvid {
   color: #fff; }
   
 
+.basis {
+    color: #00b1b1;
+}
 
 /*# sourceMappingURL=main.css.map */

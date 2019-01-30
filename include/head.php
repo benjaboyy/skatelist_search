@@ -11,5 +11,5 @@
         </script>
     <![endif]-->
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Skatelist</title>
 </head>
