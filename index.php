@@ -16,7 +16,13 @@
         
         $searchq = $_POST['search'];
         $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
-        $sql = "SELECT * FROM skatepark WHERE city LIKE '%$searchq%' OR name LIKE '%$searchq%'";
+        if ($_POST['select-filter'] == 'park') {
+            $sql = "SELECT * FROM skatepark WHERE (city LIKE '%$searchq%' OR name LIKE '%$searchq%') AND category = 'Skatepark'";
+        } elseif ($_POST['select-filter'] == 'spot') {
+            $sql = "SELECT * FROM skatepark WHERE (city LIKE '%$searchq%' OR name LIKE '%$searchq%') AND category = 'Spot'";
+        } else {
+            $sql = "SELECT * FROM skatepark WHERE city LIKE '%$searchq%' OR name LIKE '%$searchq%'";
+        }
         $result = $mysqli->query($sql);
         $space = 0;
 		
@@ -26,6 +32,17 @@
                             <div class="row">
                                 <center>
                                     <p>Er zijn geen spots gevonden</p>
+                                </center>
+                            </div>
+                          </div>
+                        </div>';
+        }
+        elseif ($searchq == null){
+            $output = '<div id="hippeDiv" class="panel panel-default">
+                          <div class="panel-body" id="alleen">
+                            <div class="row">
+                                <center>
+                                    <p>We kunnen niet gaan zoeken op lege woorden... </p>
                                 </center>
                             </div>
                           </div>

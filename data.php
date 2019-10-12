@@ -38,6 +38,7 @@
                 $objects = $row['objects'];
                 $location = $row['location'];
                 $description = $row['description'];
+                $last_change = $row['last_change'];
 				
                 require 'include/function/rating.php';
 				                
@@ -75,8 +76,8 @@
                                <p>'.$street.' '.$number.'</p>
                                <p></p>
                                <br/><p>Waardering: '.$rate.'</p>
-                               <p>ID: '.$id.'</p>
                                <p>Ondelen:<span class="iconfont"> '.$objects.'</p>
+                               <p>ID: '.$id.'</p>
                            </div>  
                            <div class="col-sm-6">
                                 ';
@@ -86,6 +87,7 @@
                                     $output .= '<h3 style="font-size:16px;"><strong>Beschrijving</strong></h3><p>'.$description.'</p>';
                                 }
                                 $output .= '
+                                <span class="last_date">Laatste update: '.$last_change.'</span>
                            </div>
                        </div>
                      </div>

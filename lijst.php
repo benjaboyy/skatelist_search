@@ -20,6 +20,7 @@
 		$name = $row['name'];
 		$id = $row['id'];
 		$rate = $row['rate'];
+        $category = $row['category'];
 		
 		require 'include/function/rating.php';
 
@@ -28,7 +29,7 @@
                         <td>'.$name.'</td> 
                         <td>'.$street.' '.$number.', '.$city.'</td> 
                         <td>'.$rate.'</td> 
-                        <td><a class="to-right arrow" ><i class="fa fa-arrow-right primary-color" aria-hidden="true"></i></a></td> 
+                        <td><a class="to-right arrow" ><i class="fa fa-arrow-right '.($category == 'Spot' ? '"style="color: orange;"' : 'primary-color"').' aria-hidden="true"></i></a></td> 
                     </tr>';
     }
         

@@ -23,9 +23,10 @@ while($row = $result->fetch_assoc()) {
     $category = $row['category'];
     $objects = $row['objects'];
     $location = $row['location'];
+    
 
     $pin .= 'var marker = L.marker(['.$location.'], {icon: '.$category.'}).addTo(mymap)
-    marker.bindPopup("<b>'.$name.'</b><br>Adres: '.$street.' '.$number.'");';
+    marker.bindPopup("<b>'.$name.'</b><br>Adres: '.$city.', '.$street.' '.$number.'<br><a href=\'http://skatelist.nl/data.php?id='.$id.'\'>Ga naar:</a> ");';
     
 }
 ?>

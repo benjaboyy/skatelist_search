@@ -1,4 +1,4 @@
-<?php if($space == 1): ?>
+<?php if(isset($space) && $space == 1): ?>
 	<style>
 		.child {
 			margin-top: 30%;
@@ -13,14 +13,13 @@
     <div class="row">
       <form  method="post" action="index.php"  id="searchform">
         <div class="col-md-7">
-            <input type="text" name="search" class="form-control">  
+            <input placeholder="Naam of Plaats" type="text" name="search" class="form-control">  
         </div>  
         <div class="col-md-3 col-xs-6">
-            <select id="select-filter" palceholder="Filter" class="form-control">
-                <option value="">Geen filter</option>
-                <option value="">Plaats</option>
-                <option value="">park</option>
-                <option value="">spot</option>
+            <select id="select-filter" palceholder="Filter" name="select-filter" class="form-control">
+                <option name="no_filter" value="no_filter">Geen filter</option>
+                <option name="park" value="park">park</option>
+                <option name="spot" value="spot">spot</option>
             </select>
         </div>
         <div class="col-md-2 col-xs-6">

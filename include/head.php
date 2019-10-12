@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="include/css/nav_css.css">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="manifest" href="manifest.json">
     <!--[if lt IE 9]>
         <script>
             document.createElement('video');
