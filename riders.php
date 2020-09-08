@@ -12,8 +12,8 @@ include 'include/menu.php';
         <div class="child panel panel-default">
           <div class="panel-body" id="onder">
             <div class="row">
-                <div class="col-sm-6"><h1>Riders</h1></div>  
-                <div class="col-sm-6">
+                <div class="col-xs-6"><h1>Riders</h1></div>  
+                <div class="col-xs-6">
                     <form style="float:right!important;" class="navbar-form navbar-left" method="post" action="index.php" id="searchform">
                         <button style="min-height: 52px;" type="submit" class="btn btn-primary">Zoeken</button>
                     </form>

@@ -377,5 +377,16 @@ video#bgvid {
 .basis {
     color: #00b1b1;
 }
+body {
+    background-image: url(/include/img/skate_bg.jpg);
+}
+
+table td {
+    border-top: solid;
+    border-top-color: #00b1b1;
+    border-top-width: 1px;
+    padding: 4px;
+}
+
 
 /*# sourceMappingURL=main.css.map */

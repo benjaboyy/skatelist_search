@@ -1,6 +1,6 @@
 <?php
 
-    $mysqli = new mysqli('localhost', 'skatelist_nl_skatelist', 'xQN3zWRU9azk', 'skatelist_nl_skatelist');
+    $mysqli = new mysqli('localhost', 'skatelist_nl_skatelist', 'XXX', 'skatelist_nl_skatelist');
     if ($mysqli->connect_errno) {
         echo "Sorry, this website is experiencing problems.";
         echo "Error: Failed to make a connection, here is why: \n";
@@ -39,6 +39,8 @@
                 $location = $row['location'];
                 $description = $row['description'];
                 $last_change = $row['last_change'];
+                $available = $row['available'];
+                $allowed = $row['allowed'];
 				
                 require 'include/function/rating.php';
 				                
@@ -71,15 +73,14 @@
                      <div class="panel-body" id="alleen">
                        <div class="row row-onder">
                            <div class="col-sm-6">
-                               <h3><strong>'.$name.'</strong></h3>
-                               <p>'.$city.'</p>
-                               <p>'.$street.' '.$number.'</p>
-                               <p></p>
-                               <br/><p>Waardering: '.$rate.'</p>
-                               <p>Ondelen:<span class="iconfont"> '.$objects.'</p>
-                               <p>ID: '.$id.'</p>
-                           </div>  
-                           <div class="col-sm-6">
+                               <h3 style="margin-top: 0;"><strong>'.$name.' ';
+                                if ($available == 1) {
+                                    $output .= '<small style="color:red;">Gesloten</small>';
+                                }
+                                $output .= '</strong></h3>
+                               <p>'.$city.' <br/> '.$street.' '.$number.'</p>
+                               <p><a href="https://www.google.com/maps/dir//'.$street.',+'.$city.'/">Route:</a>
+                               </p>
                                 ';
                                 if ($description == null) {
                                     $output .= '<br><p>"Geen beschrijving bij deze locatie"</p>';
@@ -87,7 +88,29 @@
                                     $output .= '<h3 style="font-size:16px;"><strong>Beschrijving</strong></h3><p>'.$description.'</p>';
                                 }
                                 $output .= '
-                                <span class="last_date">Laatste update: '.$last_change.'</span>
+                           </div>  
+                           <div class="col-sm-6">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="50%">ID</td><td>: '.$id.'</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Waardering</td><td>: '.$rate.'</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ondelen</td><td class="iconfont">: '.$objects.'</td>
+                                    </tr>';
+                                    if ($category == 'Skatepark'){
+                                        $output .= '
+                                        <tr>
+                                            <td>Toegang</td><td class="iconfont">: '.$allowed.'</td>
+                                        </tr>';
+                                    }
+                                    $output .= '
+                                    <tr>
+                                        <td>Laatste update</td><td>: '.$last_change.'</td>
+                                    </tr>
+                                </table>                               
                            </div>
                        </div>
                      </div>

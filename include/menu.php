@@ -19,6 +19,9 @@
           <li>
             <a href="riders.php">Riders List</a>
           </li>
+          <li>
+            <a href="send-form.php">Login</a>
+          </li>
         </ul>
       </div>
     </nav>

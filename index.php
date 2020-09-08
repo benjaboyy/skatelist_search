@@ -1,6 +1,6 @@
 <?php
     
-    $mysqli = new mysqli('localhost', 'skatelist_nl_skatelist', 'xQN3zWRU9azk', 'skatelist_nl_skatelist');
+    $mysqli = new mysqli('localhost', 'skatelist_nl_skatelist', 'XXX', 'skatelist_nl_skatelist');
     if ($mysqli->connect_errno) {
         echo "Sorry, this website is experiencing problems.";
         echo "Error: Failed to make a connection, here is why: \n";
@@ -97,6 +97,8 @@
 ?>
 
 <body>
+
+
     <video autoplay loop poster="MVI_5565.webm" id="bgvid">
         <source src="MVI_5565.webm" type="video/webm">
     </video>
@@ -108,8 +110,9 @@
     </div>
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="app.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script>
     $(".addItem").click(function(){
