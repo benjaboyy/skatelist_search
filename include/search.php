@@ -6,7 +6,7 @@
 	</style>
 <?php endif ?>
 <div class="child panel panel-default">
-  <div class="panel-heading">
+  <div class="panel-heading hidden-xs">
     <h2 class="panel-title">ZOEKEN SPOT</h2>
   </div>
   <div class="panel-body" id="onder">
@@ -26,7 +26,7 @@
 
             <button  type="submit" value="Search" class="btn btn-primary breed">
                 <i class="fa fa-search"></i>
-                Zoeken
+                <span class="hidden-xs">Zoeken</span>
             </button>
         </div>
        </form>       

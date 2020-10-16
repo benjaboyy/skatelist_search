@@ -1,17 +1,12 @@
 <?php
 
-$mysqli = new mysqli('localhost', 'skatelist_nl_skatelist', 'XXX', 'skatelist_nl_skatelist');
-if ($mysqli->connect_errno) {
-    echo "Sorry, this website is experiencing problems.";
-    echo "Error: Failed to make a connection, here is why: \n";
-    echo "Errno: " . $mysqli->connect_errno . "\n";
-    echo "Error: " . $mysqli->connect_error . "\n";
-    exit;
-}
+include 'connection.php';
 $pin = '';    
 
 $sql = "SELECT * FROM skatepark";
 $result = $mysqli->query($sql);
+
+
 
 while($row = $result->fetch_assoc()) {
     $city = $row['city'];
@@ -24,9 +19,15 @@ while($row = $result->fetch_assoc()) {
     $objects = $row['objects'];
     $location = $row['location'];
     
+    $weatherApiKey = 'c10774db4cea8a44db9198264ba98f96';
+    $url = 'http://api.openweathermap.org/data/2.5/weather?q='.$city.',nl&appid='.$weatherApiKey.' ';
+    $json_data = json_decode(file_get_contents($url), true);
+    $icon = $json_data["weather"][0]["icon"];
+    $kelvin = $json_data["main"]["temp"];
+    $celsius = round($kelvin-273.15);  
 
     $pin .= 'var marker = L.marker(['.$location.'], {icon: '.$category.'}).addTo(mymap)
-    marker.bindPopup("<b>'.$name.'</b><br>Adres: '.$city.', '.$street.' '.$number.'<br><a href=\'http://skatelist.nl/data.php?id='.$id.'\'>Ga naar:</a> ");';
+    marker.bindPopup("<b>'.$name.'</b> '.$celsius.'&#176; <br>Adres: '.$city.', '.$street.' '.$number.'<br><a href=\'http://skatelist.nl/data.php?id='.$id.'\'>Ga naar:</a> ");';
     
 }
 ?>

@@ -1,5 +1,4 @@
 <header id="mast" class="">
-    
     <!-- Main Nav-->
     <a id="toggle" href="#" onclick="$('#mapid').toggle(); ">
       <div class="menubars"></div>

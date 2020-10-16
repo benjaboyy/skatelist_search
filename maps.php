@@ -5,14 +5,14 @@
     include 'include/menu.php';
 ?>
 <link rel="stylesheet" href="include/maps/leaflet.css" />
-<style>#mapid { height: 70%; }</style>
+<style>#mapid { height: 80%; }</style>
 <body>
     <video autoplay loop poster="MVI_5565.webm" id="bgvid">
         <source src="MVI_5565.webm" type="video/webm">
     </video>
-    <div class="container">
-        <div style="margin-top:10%;" id="hippeDiv" class="panel panel-default">
-		   <div class="panel-heading">
+    <div class="container ">
+        <div style="margin-top:60px;" id="hippeDiv" class="panel panel-default">
+		   <div class="hidden-xs panel-heading">
 				<h2 class="panel-title">Alle spots</h2>
 		   </div>
            <div id="mapid"></div>

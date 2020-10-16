@@ -1,17 +1,11 @@
 <?php
 
-    $mysqli = new mysqli('localhost', 'skatelist_nl_skatelist', 'XXX', 'skatelist_nl_skatelist');
-    if ($mysqli->connect_errno) {
-        echo "Sorry, this website is experiencing problems.";
-        echo "Error: Failed to make a connection, here is why: \n";
-        echo "Errno: " . $mysqli->connect_errno . "\n";
-        echo "Error: " . $mysqli->connect_error . "\n";
-        exit;
-    }
+    include 'include/connection.php';
     $output = '';
 
     //collect
     $ids = $_GET['id'];
+    
         
         $sql = "SELECT * FROM skatepark WHERE id='$ids'";
         $result = $mysqli->query($sql);
@@ -43,6 +37,24 @@
                 $allowed = $row['allowed'];
 				
                 require 'include/function/rating.php';
+                
+                $weatherApiKey = 'c10774db4cea8a44db9198264ba98f96';
+                $url = 'https://api.openweathermap.org/data/2.5/weather?q='.$city.',nl&appid='.$weatherApiKey.' ';
+                $json_data = json_decode(file_get_contents($url), true);
+                $kelvin = $json_data["main"]["temp"];
+                $icon = $json_data["weather"][0]["icon"];
+                $celsius = round($kelvin-273.15);
+                $wind = $json_data["wind"]["speed"];
+                
+                if($wind < 12){
+                    $windPower = "zwak";
+                }elseif($wind < 25){
+                    $windPower = "matig";                    
+                }elseif($wind < 50){
+                    $windPower = "zwaar";                    
+                }else {
+                    $windPower = "storm";                    
+                }
 				                
 				$output .= '
 				<div class="row">
@@ -51,7 +63,7 @@
                          <div class="panel-body" id="alleen">
                            <div class="row">
                                <center>
-                                   <p style="text-transform:uppercase;">'.$name.'</p>
+                                   <p style="text-transform:uppercase;"><img style="width: 50px; margin-top: -17px; margin-bottom: -10px;" src="http://openweathermap.org/img/wn/'.$icon.'.png"/>'.$celsius.'&#176;</p>
                                </center>
                            </div>
                          </div>
@@ -98,15 +110,21 @@
                                         <td>Waardering</td><td>: '.$rate.'</td>
                                     </tr>
                                     <tr>
-                                        <td>Ondelen</td><td class="iconfont">: '.$objects.'</td>
+                                        <td>Ondelen</td><td class="iconfont"><strong>:</strong> '.$objects.'</td>
                                     </tr>';
                                     if ($category == 'Skatepark'){
                                         $output .= '
                                         <tr>
-                                            <td>Toegang</td><td class="iconfont">: '.$allowed.'</td>
+                                            <td>Toegang</td><td class="iconfont"><strong>:</strong> '.$allowed.'</td>
                                         </tr>';
                                     }
                                     $output .= '
+                                    <tr>
+                                        <td>Weer</td><td>: '.$celsius.'&#176; <img style="width: 30px; margin-top: -5px; margin-bottom: -5px;" src="https://openweathermap.org/img/wn/'.$icon.'.png"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wind</td><td>: '.$wind.' m/s <small>('.$windPower.')</small></td>
+                                    </tr>
                                     <tr>
                                         <td>Laatste update</td><td>: '.$last_change.'</td>
                                     </tr>
@@ -115,6 +133,20 @@
                        </div>
                      </div>
                     </div>
+                    <div class="col-sm-6 leftspad">
+					   <div id="hippeDiv" class="panel panel-warning">
+						 <div class="panel-body" id="alleen">
+				            <img src="https://skatelist.nl/include/img/parks/'.$id.'.png" style="width:100%;">
+						 </div>
+					   </div>
+				   </div>
+				   <div class="col-sm-6 rightpad">
+					   <div id="hippeDiv" class="panel panel-warning">
+						 <div class="panel-body" id="alleen">
+				            <div id="mapid"></div>
+						 </div>
+					   </div>
+				   </div>
                 <div style="margin-left: -15px; margin-right: -15px;" class="row">
                 ';
                 $pos = strpos($objects, 'f');
@@ -221,21 +253,10 @@
                            </div>
                         </div>';
                  }
-                 $output  .='</div><div class="row">
-				   <div class="col-sm-6 leftspad">
-					   <div id="hippeDiv" class="panel panel-warning">
-						 <div class="panel-body" id="alleen">
-				            <img src="https://skatelist.nl/include/img/parks/'.$id.'.png" style="width:100%;">
-						 </div>
-					   </div>
-				   </div>
-				   <div class="col-sm-6 rightpad">
-					   <div id="hippeDiv" class="panel panel-warning">
-						 <div class="panel-body" id="alleen">
-				            <div id="mapid"></div>
-						 </div>
-					   </div>
-				   </div>
+                 $output  .='
+                 </div>
+                 <div class="row">
+				   
 				</div>';
 				}
         }
@@ -291,7 +312,7 @@ include 'include/menu.php';
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="include/js/nav_js.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script>
 $(".addItem").click(function(){
