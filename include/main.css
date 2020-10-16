@@ -32,6 +32,9 @@
   background-color: #00b1b1; }
 
 @media (max-width: 768px) {
+  .panel-body[id="alleen"] {
+      background-color: #ffffffba !important; }
+    
   .doorstuur {
     float: right;
     padding-top: 20px;
@@ -133,11 +136,16 @@ html, html a {
 
 .panel-body[id="alleen"] {
   padding: 15px;
-  background-color: #ffffff !important;
+  padding-bottom: 14px;
+  background-color: #ffffff;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0; }
+
+
+
+
 
 select:not(.ui-datepicker-year):not(.ui-datepicker-month) {
   font-family: 'PT Sans', sans-serif;
@@ -223,6 +231,12 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
   -webkit-animation: fadein 2s;
   -moz-animation: fadein 2s;
   animation: fadein 2s; }
+
+/*
+.panel[id="hippeDiv"]{
+      background-image: url('https://placekitten.com/1200/800');
+}
+*/
 
 @-webkit-keyframes fadein {
   from {
@@ -354,7 +368,8 @@ video#bgvid {
     background: url(MVI_5565.webm) #000 no-repeat center center fixed; }
 
   #bgvid {
-    display: none; } }
+    display: none; } 
+}
 .selection {
   background-image: url(IMG_6454.jpg);
   background-position: 0 0;
@@ -387,6 +402,8 @@ table td {
     border-top-width: 1px;
     padding: 4px;
 }
+
+
 
 
 /*# sourceMappingURL=main.css.map */

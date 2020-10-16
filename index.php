@@ -55,7 +55,7 @@
 				
                 
                 
-                $output .= '<div id="hippeDiv" class="panel panel-default">
+                $output .= '<div style="background-image: url(\'https://skatelist.nl/include/img/parks/'.$id.'.png\'); background-size: cover; background-position: center;" id="hippeDiv" class="panel panel-default">
                               <div class="panel-body" id="alleen">
                                 <div class="row row-onder resultaat">
                                     <div class="col-sm-4">
@@ -67,7 +67,7 @@
                                         <p style="margin: 0 0 1 0;">Rating: '.$rate.'</p>
                                     </div>
                                     <div class="col-sm-3">
-                                        Bevat: <span class="iconfont hidden-sm" style="font-size:14px; color:#4d4d4d;">'.$objects.'</span>
+                                        <span class="iconfont hidden-sm" style="font-size:14px; color:#262626;">Bevat: '.$objects.'</span>
                                         <p>SpotID: '.$id.'</p>
                                     </div>  
                                     <div class="col-md-1 row-hoog">

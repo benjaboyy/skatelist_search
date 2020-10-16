@@ -59,11 +59,11 @@
 				$output .= '
 				<div class="row">
                     <div class="col-sm-6 leftspad">
-                       <div onclick="location.href="http//:maps.google.com"  ;" id="hippeDiv" class="panel panel-default ">
+                       <div onclick="location.href="https//:maps.google.com"  ;" id="hippeDiv" class="panel panel-default ">
                          <div class="panel-body" id="alleen">
                            <div class="row">
                                <center>
-                                   <p style="text-transform:uppercase;"><img style="width: 50px; margin-top: -17px; margin-bottom: -10px;" src="http://openweathermap.org/img/wn/'.$icon.'.png"/>'.$celsius.'&#176;</p>
+                                   <p style="text-transform:uppercase;"><img style="width: 50px; margin-top: -17px; margin-bottom: -10px;" src="https://openweathermap.org/img/wn/'.$icon.'.png"/>'.$celsius.'&#176;</p>
                                </center>
                            </div>
                          </div>
@@ -85,14 +85,16 @@
                      <div class="panel-body" id="alleen">
                        <div class="row row-onder">
                            <div class="col-sm-6">
+                                <p>
+                                    <a class="btn btn-primary" role="button" href="https://www.google.com/maps/dir//'.$street.',+'.$city.'/"><i class="fa fa-car"></i> Route in maps</a>
+                               </p>
                                <h3 style="margin-top: 0;"><strong>'.$name.' ';
                                 if ($available == 1) {
                                     $output .= '<small style="color:red;">Gesloten</small>';
                                 }
                                 $output .= '</strong></h3>
+                                
                                <p>'.$city.' <br/> '.$street.' '.$number.'</p>
-                               <p><a href="https://www.google.com/maps/dir//'.$street.',+'.$city.'/">Route:</a>
-                               </p>
                                 ';
                                 if ($description == null) {
                                     $output .= '<br><p>"Geen beschrijving bij deze locatie"</p>';
@@ -147,7 +149,7 @@
 						 </div>
 					   </div>
 				   </div>
-                <div style="margin-left: -15px; margin-right: -15px;" class="row">
+                <div style="margin-left: -15px; margin-right: -15px;" class="row hidden-xs">
                 ';
                 $pos = strpos($objects, 'f');
                 if ($pos !== false) {
