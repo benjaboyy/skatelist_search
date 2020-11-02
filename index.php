@@ -67,7 +67,7 @@
                                         <p style="margin: 0 0 1 0;">Rating: '.$rate.'</p>
                                     </div>
                                     <div class="col-sm-3">
-                                        <span class="iconfont hidden-sm" style="font-size:14px; color:#262626;">Bevat: '.$objects.'</span>
+                                        <span class="hidden-sm">Bevat:</span> <span class="iconfont hidden-sm" style="font-size:14px; color:#262626;">'.$objects.'</span>
                                         <p>SpotID: '.$id.'</p>
                                     </div>  
                                     <div class="col-md-1 row-hoog">
