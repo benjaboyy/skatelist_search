@@ -31,10 +31,23 @@
 .menu-button:hover {
   background-color: #00b1b1; }
 
+.panel-body[id="alleen"] {
+  padding: 15px;
+  padding-bottom: 14px;
+  background-color: #ffffff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+
 @media (max-width: 768px) {
   .panel-body[id="alleen"] {
-      background-color: #ffffffba !important; }
-    
+/*      background-color: #ffffffba !important; }*/
+      background: rgb(255,255,255) !important;
+      background: -webkit-linear-gradient(left, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;;
+      background: -o-linear-gradient(left, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;;
+      background: linear-gradient(to right, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;; }
+     
   .doorstuur {
     float: right;
     padding-top: 20px;
@@ -129,15 +142,6 @@ html, html a {
 .panel-body[id="onder"] {
   padding: 15px;
   background-color: #ffffff !important;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0; }
-
-.panel-body[id="alleen"] {
-  padding: 15px;
-  padding-bottom: 14px;
-  background-color: #ffffff;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
