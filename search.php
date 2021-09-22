@@ -15,13 +15,19 @@
         <div class="col-md-7">
             <input placeholder="Naam of Plaats" type="text" name="search" class="form-control">  
         </div>  
-        <div class="col-md-3 col-xs-6">
+        <div class="col-md-2 col-xs-6">
             <select id="select-filter" palceholder="Filter" name="select-filter" class="form-control">
                 <option name="no_filter" value="no_filter">Geen filter</option>
                 <option name="park" value="park">park</option>
                 <option name="spot" value="spot">spot</option>
             </select>
         </div>
+          <div class="col-md-1 hidden-xs">
+            <select id="select-filter" palceholder="Filter" name="select-filter" class="form-control">
+                <option name="--" value="--">===</option>
+                <option name="++" value="++">---</option>
+            </select>
+          </div>
         <div class="col-md-2 col-xs-6">
 
             <button  type="submit" value="Search" class="btn btn-primary breed">

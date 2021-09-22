@@ -1,8 +1,14 @@
 <?php
     
-    include 'include/connection.php';
+    $mysqli = new mysqli('localhost', 'skatelist_nl_skatelist', 'xQN3zWRU9azk', 'skatelist_nl_skatelist');
+    if ($mysqli->connect_errno) {
+        echo "Sorry, this website is experiencing problems.";
+        echo "Error: Failed to make a connection, here is why: \n";
+        echo "Errno: " . $mysqli->connect_errno . "\n";
+        echo "Error: " . $mysqli->connect_error . "\n";
+        exit;
+    }
     $output = '';
-    $output2 = '';
 	$space = 1;
     
     //collect
@@ -10,13 +16,14 @@
         
         $searchq = $_POST['search'];
         $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
-        if ($_POST['select-filter'] == 'park') {
-            $sql = "SELECT * FROM skatepark WHERE (city LIKE '%$searchq%' OR name LIKE '%$searchq%') AND category = 'Skatepark'";
-        } elseif ($_POST['select-filter'] == 'spot') {
-            $sql = "SELECT * FROM skatepark WHERE (city LIKE '%$searchq%' OR name LIKE '%$searchq%') AND category = 'Spot'";
+        if ($_POST['select-filter'] == 'park')) {
+            $sql = "SELECT * FROM skatepark WHERE city LIKE '%$searchq%' OR name LIKE '%$searchq%' AND category IS park";
+        } elseif ($_POST['select-filter'] == 'spot')) {
+            $sql = "SELECT * FROM skatepark WHERE city LIKE '%$searchq%' OR name LIKE '%$searchq%' AND category IS spot";
         } else {
             $sql = "SELECT * FROM skatepark WHERE city LIKE '%$searchq%' OR name LIKE '%$searchq%'";
         }
+        
         $result = $mysqli->query($sql);
         $space = 0;
 		
@@ -36,7 +43,7 @@
                           <div class="panel-body" id="alleen">
                             <div class="row">
                                 <center>
-                                    <p>Zoek op naam of adres... </p>
+                                    <p>We kunnen niet gaan zoeken op lege woorden... </p>
                                 </center>
                             </div>
                           </div>
@@ -56,8 +63,8 @@
 				
                 
                 
-                $output .= '<div style="background-image: url(\'https://skatelist.nl/include/img/parks/'.$id.'.png\'); background-size: cover; background-position: center;" id="hippeDiv" class="panel panel-default">
-                              <div class="panel-body" id="gradnt">
+                $output .= '<div id="hippeDiv" class="panel panel-default">
+                              <div class="panel-body" id="alleen">
                                 <div class="row row-onder resultaat">
                                     <div class="col-sm-4">
                                         <strong>'.$name.'</strong>
@@ -68,7 +75,7 @@
                                         <p style="margin: 0 0 1 0;">Rating: '.$rate.'</p>
                                     </div>
                                     <div class="col-sm-3">
-                                        <span class="hidden-sm">Bevat:</span> <span class="iconfont hidden-sm" style="font-size:14px; color:#262626;">'.$objects.'</span>
+                                        Bevat: <span class="iconfont hidden-sm" style="font-size:14px; color:#4d4d4d;">'.$objects.'</span>
                                         <p>SpotID: '.$id.'</p>
                                     </div>  
                                     <div class="col-md-1 row-hoog">
@@ -81,32 +88,6 @@
                                 </div>
                               </div>
                             </div>';
-                $output2 .= '<div class="col-lg-4 col-md-6 col-sm-6">
-                              <div style="background-image: url(\'https://skatelist.nl/include/img/parks/'.$id.'.png\'); background-size: cover; background-position: center;" id="hippeDiv" class="panel panel-default">
-                              <div class="panel-body grid-height" id="gradnt">
-                                <div class="row row-onder resultaat">
-                                    <div class="col-sm-12">
-                                        <strong>'.$name.'</strong>
-                                        <p>'.$city.'</p>
-                                    </div>  
-                                    <div class="col-sm-12 row-weg">
-                                        <br/>
-                                        <p style="margin: 0 0 1 0;">Rating: '.$rate.'</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p>SpotID: '.$id.'</p>
-                                    </div>  
-                                    <div class="col-md-6">
-                                        <a type="button" class="btn btn-primary" href="data.php?id='.$id.'" >
-                                            <center>
-                                                <i class="fa fa-arrow-right"></i>
-                                            </center>
-                                        </a> 
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-                        </div>';
             }
         }
     }
@@ -117,34 +98,19 @@
 ?>
 
 <body>
-
-
     <video autoplay loop poster="MVI_5565.webm" id="bgvid">
         <source src="MVI_5565.webm" type="video/webm">
     </video>
    <div class="container">
        <?php 
            require 'include/search.php';
+           print("$output");
        ?>
-       
-       <div id="grids" style="display: none;">
-           <div class="row grid-row">
-               <?php
-                   print("$output2");
-               ?>
-           </div>
-       </div>
-       <div >
-           <?php
-               print("$output");
-           ?>
-       </div>
     </div>
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="app.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script>
     $(".addItem").click(function(){

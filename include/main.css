@@ -40,13 +40,39 @@
   -ms-border-radius: 0;
   border-radius: 0; }
 
+.panel-body[id="gradnt"] {
+  padding: 15px;
+  padding-bottom: 14px;
+  background-color: #ffffff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; 
+  height: 94px;}
+
+.grid-height {
+	height:auto !important;
+      background: rgb(255,255,255) !important;
+      background: -webkit-linear-gradient(left, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;
+      background: -o-linear-gradient(left, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;
+      background: linear-gradient(to right, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;
+      border: solid #00b1b1 1px;
+}
+
+.grid-row {
+	margin-left:-15px;
+	margin-right:-15px;
+}
+
 @media (max-width: 768px) {
-  .panel-body[id="alleen"] {
+  .panel-body[id="gradnt"] {
 /*      background-color: #ffffffba !important; }*/
       background: rgb(255,255,255) !important;
-      background: -webkit-linear-gradient(left, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;;
-      background: -o-linear-gradient(left, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;;
-      background: linear-gradient(to right, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;; }
+      background: -webkit-linear-gradient(left, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;
+      background: -o-linear-gradient(left, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;
+      background: linear-gradient(to right, rgba(255,255,255,0.93) 6%, rgba(255,255,255,0.17) 100%) !important;
+      border: solid #00b1b1 1px;
+	height:auto;}
      
   .doorstuur {
     float: right;
