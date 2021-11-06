@@ -4,8 +4,20 @@
     include 'include/head.php';
     include 'include/menu.php';
 ?>
-<link rel="stylesheet" href="include/maps/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
 <style>#mapid { height: 80%; }</style>
+
+<!--
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiYmVuamFib3l5IiwiYSI6ImNqcjliZGNxYjBlYWg0OXFrenZqZnlzMGoifQ.VkeYKMDR5cF8jNyDBX5uEg';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11'
+});
+</script>
+-->
 <body>
     <video autoplay loop poster="MVI_5565.webm" id="bgvid">
         <source src="MVI_5565.webm" type="video/webm">
@@ -15,33 +27,38 @@
 		   <div class="hidden-xs panel-heading">
 				<h2 class="panel-title">Alle spots</h2>
 		   </div>
-           <div id="mapid"></div>
+            <div id="mapid"></div>
         </div>
     </div>
 </body>
 
-<script src="include/maps/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
 <script>
     var mymap = L.map('mapid').setView([52.117,5.142], 8);
 
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-        maxZoom: 18,
-        attribution: 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox.streets'
-    }).addTo(mymap);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmVuamFib3l5IiwiYSI6ImNrdHZ3aG5tdzIxcTQzMm5xcXF2NXd5YW0ifQ.fF6u39qCe24aOIUdaq5a9A', {
+        attribution: '© <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoiYmVuamFib3l5IiwiYSI6ImNrdHZ3aG5tdzIxcTQzMm5xcXF2NXd5YW0ifQ.fF6u39qCe24aOIUdaq5a9A'
+}).addTo(mymap);
     var Skatepark = L.icon({
         iconUrl: 'https://skatelist.nl/include/maps/images/Skatepark-2x.png',
-        iconSize: [38, 67],
-        iconAnchor: [18, 60],
-        popupAnchor: [-3, -60],
+        iconSize: [19, 34],
+        iconAnchor: [9, 30],
+        popupAnchor: [-3, -30],
         shadowSize: [68, 95],
         shadowAnchor: [22, 60]
     });
     var Spot = L.icon({
         iconUrl: 'https://skatelist.nl/include/maps/images/Spot-2x.png',
-        iconSize: [38, 67],
-        iconAnchor: [18, 60],
-        popupAnchor: [-3, -60],
+        iconSize: [19, 34],
+        iconAnchor: [9, 30],
+        popupAnchor: [-3, -30],
         shadowSize: [68, 95],
         shadowAnchor: [22, 60]
     });

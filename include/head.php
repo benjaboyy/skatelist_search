@@ -6,6 +6,11 @@
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="manifest" href="manifest.json">
+    
+
+
+    
+
     <!--[if lt IE 9]>
         <script>
             document.createElement('video');
@@ -22,24 +27,4 @@
       });
     }
     </script>  
-    
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-messaging.js"></script>
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
-    
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-    <script>
-      window.OneSignal = window.OneSignal || [];
-      OneSignal.push(function() {
-        OneSignal.init({
-          appId: "2da9fb7a-8aba-4bc1-84ab-c1bf7ec080a1",
-        });
-      });
-    </script>
-
 </head>
